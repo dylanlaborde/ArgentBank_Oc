@@ -4,7 +4,7 @@ import Logo from '../../Assets/img/argentBankLogo.png'
 function Nav() {
   return (
     <nav className="main-nav">
-      <Link to={"./"} className="main-nav-logo" href="./">
+      <Link to={"/"} className="main-nav-logo">
         <img
           className="main-nav-logo-image"
           src={Logo}
@@ -13,7 +13,7 @@ function Nav() {
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
       <div>
-        <Link className="main-nav-item" href="./sign-in">
+        <Link className="main-nav-item" to="./sign-in">
           <i className="fa fa-user-circle"></i>
            Sign In
         </Link>
