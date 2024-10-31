@@ -13,17 +13,9 @@ function Profile() {
   const savedToken = sessionStorage.getItem("token");
   const dispatch = useDispatch();
   if (connected && userToken) {
-    dispatch(getProfile(userToken))
-    sessionStorage.setItem("token", userToken);
-  } else if (savedToken) {
-    dispatch({ type: KEEP_ALIVE, payload: savedToken })
-  }
+    //dispatch(getProfile(userToken))
+  } 
 
-  useEffect(() => {
-    console.log(userToken)
-    console.log(savedToken)
-
-  },[userToken,savedToken])
   
   return (
     <>

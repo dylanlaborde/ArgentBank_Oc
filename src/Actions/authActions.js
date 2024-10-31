@@ -1,4 +1,6 @@
+import { useSelector } from "react-redux";
 import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, USER_RESET } from "./actions.type";
+import { getProfile } from "./userAction";
 
 export const login = (email, pswrd) => {
     
@@ -15,8 +17,14 @@ export const login = (email, pswrd) => {
           });
           const data = await response.json();
             if (response.ok) {
-              
-            dispatch({ type: LOGIN_SUCCESS, payload: data.body.token });
+              try {
+                dispatch(getProfile(data.body.token))
+              } catch (error) {
+                console.log("une erreur est survenue :",error)
+              }
+
+
+              dispatch({ type: LOGIN_SUCCESS, payload: data.body.token });
           } else {
             dispatch({ type: LOGIN_FAIL, error: data.message || 'Login failed' });
           }

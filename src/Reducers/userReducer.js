@@ -5,7 +5,7 @@ const initialstate = {}
 export const userReducer = (state = initialstate, action) => {
     switch (action.type) {
         case GET_PROFILE:
-            return action.payload
+            return {...state,status:action.status,payload:action.payload}
         case USER_RESET:
             return initialstate
         default:

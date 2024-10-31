@@ -12,7 +12,9 @@ export const getProfile = (token) => {
                     },
                 })
                 const data = await response.json();
-                dispatch({ type: GET_PROFILE, payload: data.body })
+                if (data.status === 200) {
+                    dispatch({ type: GET_PROFILE,status:"SUCCESS",payload: data.body })
+                }
             } catch (error) {
                 console.error("There was a problem with the fetch operation:", error);
 

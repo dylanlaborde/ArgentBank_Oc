@@ -8,14 +8,15 @@ function LoginForm() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
   const userIsLog = useSelector((state) => state.auth.isLog);
+  const userRequestStatus = useSelector((state) => state.user.status);
   const navigate = useNavigate();
   useEffect(() => {
     if (error) {
       console.log(error);
-    } else if (userIsLog) {
+    } else if (userIsLog && userRequestStatus === "SUCCESS") {
       navigate("/profile");
     }
-  }, [error, userIsLog]);
+  }, [error,userIsLog,userRequestStatus]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
