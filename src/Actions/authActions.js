@@ -1,0 +1,27 @@
+import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actions.type";
+
+export const login = (email, pswrd) => {
+    
+  return async (dispatch) => {
+      dispatch({type:LOGIN_REQUEST})
+        try {
+          const response = await fetch('http://localhost:3001/api/v1/user/login', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ "email": email,"password": pswrd }),
+          });
+          const data = await response.json();
+            if (response.ok) {
+              
+            dispatch({ type: LOGIN_SUCCESS, payload: data.body.token });
+          } else {
+            dispatch({ type: LOGIN_FAIL, error: data.message || 'Login failed' });
+          }
+        } catch (error) {
+          dispatch({ type: LOGIN_FAIL, error: 'Network error' });
+        }
+      };
+  };
