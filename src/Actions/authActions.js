@@ -1,4 +1,4 @@
-import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actions.type";
+import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, USER_RESET } from "./actions.type";
 
 export const login = (email, pswrd) => {
     
@@ -24,4 +24,12 @@ export const login = (email, pswrd) => {
           dispatch({ type: LOGIN_FAIL, error: 'Network error' });
         }
       };
-  };
+};
+  
+export const logout = () => {
+  return (dispatch) => {
+    dispatch({ type: LOGOUT })
+    dispatch({type:USER_RESET})
+    sessionStorage.clear()
+  }
+}

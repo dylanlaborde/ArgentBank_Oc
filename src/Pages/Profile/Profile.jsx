@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../../Components/Nav/Nav";
 import Main from "../../Components/Main/Main";
-import PorfileHeader from "../../Components/ProfileHeader/PorfileHeader";
+import PorfileHeader from "../../Components/ProfileHeader/ProfileHeader";
 import Account from "../../Components/Account/Account";
+import { useDispatch, useSelector } from "react-redux";
+import { GET_PROFILE, KEEP_ALIVE } from "../../Actions/actions.type";
+import { getProfile } from "../../Actions/userAction";
 
 function Profile() {
+  const userToken = useSelector((state) => state.auth.token)
+  const connected = useSelector((state) => state.auth.isLog)
+  const savedToken = sessionStorage.getItem("token");
+  const dispatch = useDispatch();
+  if (connected && userToken) {
+    dispatch(getProfile(userToken))
+    sessionStorage.setItem("token", userToken);
+  } else if (savedToken) {
+    dispatch({ type: KEEP_ALIVE, payload: savedToken })
+  }
+
+  useEffect(() => {
+    console.log(userToken)
+    console.log(savedToken)
+
+  },[userToken,savedToken])
+  
   return (
     <>
       <Nav />

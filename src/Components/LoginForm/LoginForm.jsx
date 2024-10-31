@@ -1,17 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Actions/authActions";
+import { useNavigate } from "react-router";
 
 function LoginForm() {
   const formValue = useRef();
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.auth.error)
-  
+  const error = useSelector((state) => state.auth.error);
+  const userIsLog = useSelector((state) => state.auth.isLog);
+  const navigate = useNavigate();
   useEffect(() => {
     if (error) {
-      console.log(error)
+      console.log(error);
+    } else if (userIsLog) {
+      navigate("/profile");
     }
-  },[error])
+  }, [error, userIsLog]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,15 +27,15 @@ function LoginForm() {
   };
 
   return (
-    <form ref={formValue} onSubmit={handleSubmit} >
-      {error ? <p className="error-msg">{error}</p> :null}  
+    <form ref={formValue} onSubmit={handleSubmit}>
+      {error ? <p className="error-msg">{error}</p> : null}
       <div className="input-wrapper">
         <label htmlFor="username">Username</label>
-        <input type="text" id="username" required/>
+        <input type="text" id="username" required />
       </div>
       <div className="input-wrapper">
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" required/>
+        <input type="password" id="password" required />
       </div>
       <div className="input-remember">
         <label htmlFor="remember-me">Remember me</label>

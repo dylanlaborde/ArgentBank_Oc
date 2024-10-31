@@ -1,19 +1,23 @@
-import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "../Actions/actions.type";
+import { KEEP_ALIVE, LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT } from "../Actions/actions.type";
 
 const initialstate = {
     isLog: false,
-    token:null,
-    error:null
+    token: null,
+    error: null
 }
 
 export const authReducer = (state = initialstate, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
-            return {...state ,error:''}
+            return { ...state, error: '' }
         case LOGIN_SUCCESS:
-            return { ...state, isLog: true ,token:action.payload}
+            return { ...state, isLog: true, token: action.payload }
         case LOGIN_FAIL:
             return { ...state, error: action.error }
+        case KEEP_ALIVE:
+            return { ...state, isLog: true, token: action.payload }
+        case LOGOUT:
+            return { ...state, isLog: false, token: null }
         default:
             return state;
     }
