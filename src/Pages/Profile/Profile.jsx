@@ -4,19 +4,11 @@ import Main from "../../Components/Main/Main";
 import PorfileHeader from "../../Components/ProfileHeader/ProfileHeader";
 import Account from "../../Components/Account/Account";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_PROFILE, KEEP_ALIVE } from "../../Actions/actions.type";
-import { getProfile } from "../../Actions/userAction";
 
 function Profile() {
   const userToken = useSelector((state) => state.auth.token)
   const connected = useSelector((state) => state.auth.isLog)
-  const savedToken = sessionStorage.getItem("token");
-  const dispatch = useDispatch();
-  if (connected && userToken) {
-    //dispatch(getProfile(userToken))
-  } 
 
-  
   return (
     <>
       <Nav />

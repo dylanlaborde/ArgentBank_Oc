@@ -296,6 +296,25 @@ body,#root {
   color: #fff;
 }
 
+.edit-wrapper{
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.button-wrapper{
+  display: flex;
+  gap: 15px;
+}
+
+.button-wrapper button{
+  width: 100%;
+}
+
 @media (min-width: 720px) {
   .account {
     flex-direction: row;

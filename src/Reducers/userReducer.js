@@ -1,4 +1,4 @@
-import { GET_PROFILE, USER_RESET } from "../Actions/actions.type";
+import { GET_PROFILE, UPDATE_USERNAME, USER_RESET } from "../Actions/actions.type";
 
 const initialstate = {}
 
@@ -8,6 +8,8 @@ export const userReducer = (state = initialstate, action) => {
             return {...state,status:action.status,payload:action.payload}
         case USER_RESET:
             return initialstate
+        case UPDATE_USERNAME:
+            return{...state,payload:{...state.payload,userName:action.payload},status:action.status}
         default:
             return state;
     }

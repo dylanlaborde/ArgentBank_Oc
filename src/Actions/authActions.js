@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT, USER_RESET } from "./actions.type";
 import { getProfile } from "./userAction";
 

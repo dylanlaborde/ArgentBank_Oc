@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import EditForm from "../EditForm/EditForm";
+import Header from "../Header/Header";
 
 function PorfileHeader() {
-  const data = useSelector((state) => state.user.payload)
+  const user = useSelector((state) => state.user);
+  const [visible, setvisible] = useState(false);
+  
+  const changeVisibility = () => {
+    setvisible((last)=>!last);
+  };
+
   return (
-    <div className="header">
-      <h1>
-        Welcome back
-        <br />
-        {`${data.firstName} ${data.lastName}!` }
-      </h1>
-      <button className="edit-button">Edit Name</button>
-    </div>
+    <>
+      {visible ? (
+        <EditForm changeVisibility={changeVisibility}/>
+      ) : (
+        <Header changeVisibility={changeVisibility}/>
+      )}
+    </>
   );
 }
 
