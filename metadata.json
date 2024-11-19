@@ -1,28 +1,53 @@
 {
     "title": "Argent Bank",
-    "description": "Application bancaire avec système d'authentification",
+    "description": "Application bancaire avec gestion d'état Redux et intégration API",
     "technologies": [
         "React",
         "Redux",
-        "Node.js",
-        "MongoDB",
-        "JWT",
-        "Sass",
-        "React Router"
-    ],
-    "features": [
-        "Authentification utilisateur",
-        "Gestion des transactions",
-        "Modification du profil utilisateur",
-        "Interface responsive",
-        "Navigation entre les pages avec React Router",
-        "Composants React réutilisables"
+        "Redux Toolkit",
+        "API REST",
+        "Swagger"
     ],
     "competences": [
-        "Initialisation d'une application avec Create React App",
-        "Configuration de la navigation avec React Router",
-        "Développement de composants React",
-        "Mise en œuvre d'animations CSS",
-        "Développement d'interface avec Sass"
-    ]
+        "Afficher les données du back end sur l'interface via des appels API",
+        "Configurer des routes API pour la communication client / serveur",
+        "Implémenter la gestion des données avec Redux pour assurer le fonctionnement du front"
+    ],
+    "features": {
+        "api_integration": [
+            "Authentification utilisateur",
+            "Récupération des données de profil",
+            "Mise à jour des informations utilisateur",
+            "Gestion des transactions"
+        ],
+        "redux_state": [
+            "Gestion du state d'authentification",
+            "Stockage des données utilisateur",
+            "Gestion des erreurs API",
+            "Persistance des données de session"
+        ],
+        "api_routes": [
+            "/api/v1/user/login",
+            "/api/v1/user/profile",
+            "/api/v1/user/profile/update"
+        ]
+    },
+    "redux_implementation": {
+        "stores": [
+            "Authentication Store",
+            "User Store",
+            "Transaction Store"
+        ],
+        "actions": [
+            "Login",
+            "Logout",
+            "UpdateProfile",
+            "FetchUserData"
+        ],
+        "reducers": [
+            "authReducer",
+            "userReducer",
+            "transactionReducer"
+        ]
+    }
 }
