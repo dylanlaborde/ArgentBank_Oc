@@ -1,0 +1,28 @@
+{
+    "title": "Argent Bank",
+    "description": "Application bancaire avec système d'authentification",
+    "technologies": [
+        "React",
+        "Redux",
+        "Node.js",
+        "MongoDB",
+        "JWT",
+        "Sass",
+        "React Router"
+    ],
+    "features": [
+        "Authentification utilisateur",
+        "Gestion des transactions",
+        "Modification du profil utilisateur",
+        "Interface responsive",
+        "Navigation entre les pages avec React Router",
+        "Composants React réutilisables"
+    ],
+    "competences": [
+        "Initialisation d'une application avec Create React App",
+        "Configuration de la navigation avec React Router",
+        "Développement de composants React",
+        "Mise en œuvre d'animations CSS",
+        "Développement d'interface avec Sass"
+    ]
+}
